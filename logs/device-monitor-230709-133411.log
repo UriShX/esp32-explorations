@@ -1,0 +1,690 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13192
+load:0x40080400,len:3028
+entry 0x400805e4
+
+Starting ConfigOnSwitch using LittleFS on Espressif ESP32 Dev Module
+ESP_WiFiManager v1.12.1
+Forced Formatting.
+
+assert failed: esp_littlefs_format esp_littlefs.c:321 (partition_label)
+
+
+Backtrace: 0x400836e9:0x3ffb1f50 0x4008c6d9:0x3ffb1f70 0x40091ff9:0x3ffb1f90 0x4010d153:0x3ffb20c0 0x400df80a:0x3ffb20f0 0x400d6f6d:0x3ffb2110 0x400e1f76:0x3ffb2290
+
+  #0  0x400836e9:0x3ffb1f50 in panic_abort at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/esp_system/panic.c:408
+  #1  0x4008c6d9:0x3ffb1f70 in esp_system_abort at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/esp_system/esp_system.c:137
+  #2  0x40091ff9:0x3ffb1f90 in __assert_func at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/newlib/assert.c:85
+  #3  0x4010d153:0x3ffb20c0 in esp_littlefs_format at /Users/ficeto/Desktop/ESP32/ESP32S2/esp32-arduino-lib-builder/components/esp_littlefs/src/esp_littlefs.c:357 (discriminator 1)
+  #4  0x400df80a:0x3ffb20f0 in fs::LittleFSFS::format() at C:/Users/UriSh/.platformio/packages/framework-arduinoespressif32/libraries/LittleFS/src/LittleFS.cpp:117
+  #5  0x400d6f6d:0x3ffb2110 in setup() at src/main.cpp:773
+  #6  0x400e1f76:0x3ffb2290 in loopTask(void*) at C:/Users/UriSh/.platformio/packages/framework-arduinoespressif32/cores/esp32/main.cpp:42
+
+
+
+
+ELF file SHA256: 0d4d82f3f0bd8038
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13192
+load:0x40080400,len:3028
+entry 0x400805e4
+
+Starting ConfigOnSwitch using LittleFS on Espressif ESP32 Dev Module
+ESP_WiFiManager v1.12.1
+Forced Formatting.
+
+assert failed: esp_littlefs_format esp_littlefs.c:321 (partition_label)
+
+
+Backtrace: 0x400836e9:0x3ffb1f50 0x4008c6d9:0x3ffb1f70 0x40091ff9:0x3ffb1f90 0x4010d153:0x3ffb20c0 0x400df80a:0x3ffb20f0 0x400d6f6d:0x3ffb2110 0x400e1f76:0x3ffb2290
+
+  #0  0x400836e9:0x3ffb1f50 in panic_abort at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/esp_system/panic.c:408
+  #1  0x4008c6d9:0x3ffb1f70 in esp_system_abort at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/esp_system/esp_system.c:137
+  #2  0x40091ff9:0x3ffb1f90 in __assert_func at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/newlib/assert.c:85
+  #3  0x4010d153:0x3ffb20c0 in esp_littlefs_format at /Users/ficeto/Desktop/ESP32/ESP32S2/esp32-arduino-lib-builder/components/esp_littlefs/src/esp_littlefs.c:357 (discriminator 1)
+  #4  0x400df80a:0x3ffb20f0 in fs::LittleFSFS::format() at C:/Users/UriSh/.platformio/packages/framework-arduinoespressif32/libraries/LittleFS/src/LittleFS.cpp:117
+  #5  0x400d6f6d:0x3ffb2110 in setup() at src/main.cpp:773
+  #6  0x400e1f76:0x3ffb2290 in loopTask(void*) at C:/Users/UriSh/.platformio/packages/framework-arduinoespressif32/cores/esp32/main.cpp:42
+
+
+
+
+ELF file SHA256: 0d4d82f3f0bd8038
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13192
+load:0x40080400,len:3028
+entry 0x400805e4
+
+Starting ConfigOnSwitch using LittleFS on Espressif ESP32 Dev Module
+ESP_WiFiManager v1.12.1
+Forced Formatting.
+
+assert failed: esp_littlefs_format esp_littlefs.c:321 (partition_label)
+
+
+Backtrace: 0x400836e9:0x3ffb1f50 0x4008c6d9:0x3ffb1f70 0x40091ff9:0x3ffb1f90 0x4010d153:0x3ffb20c0 0x400df80a:0x3ffb20f0 0x400d6f6d:0x3ffb2110 0x400e1f76:0x3ffb2290
+
+  #0  0x400836e9:0x3ffb1f50 in panic_abort at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/esp_system/panic.c:408
+  #1  0x4008c6d9:0x3ffb1f70 in esp_system_abort at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/esp_system/esp_system.c:137
+  #2  0x40091ff9:0x3ffb1f90 in __assert_func at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/newlib/assert.c:85
+  #3  0x4010d153:0x3ffb20c0 in esp_littlefs_format at /Users/ficeto/Desktop/ESP32/ESP32S2/esp32-arduino-lib-builder/components/esp_littlefs/src/esp_littlefs.c:357 (discriminator 1)
+  #4  0x400df80a:0x3ffb20f0 in fs::LittleFSFS::format() at C:/Users/UriSh/.platformio/packages/framework-arduinoespressif32/libraries/LittleFS/src/LittleFS.cpp:117
+  #5  0x400d6f6d:0x3ffb2110 in setup() at src/main.cpp:773
+  #6  0x400e1f76:0x3ffb2290 in loopTask(void*) at C:/Users/UriSh/.platformio/packages/framework-arduinoespressif32/cores/esp32/main.cpp:42
+
+
+
+
+ELF file SHA256: 0d4d82f3f0bd8038
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13192
+load:0x40080400,len:3028
+entry 0x400805e4
+
+Starting ConfigOnSwitch using LittleFS on Espressif ESP32 Dev Module
+ESP_WiFiManager v1.12.1
+Forced Formatting.
+
+assert failed: esp_littlefs_format esp_littlefs.c:321 (partition_label)
+
+
+Backtrace: 0x400836e9:0x3ffb1f50 0x4008c6d9:0x3ffb1f70 0x40091ff9:0x3ffb1f90 0x4010d153:0x3ffb20c0 0x400df80a:0x3ffb20f0 0x400d6f6d:0x3ffb2110 0x400e1f76:0x3ffb2290
+
+  #0  0x400836e9:0x3ffb1f50 in panic_abort at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/esp_system/panic.c:408
+  #1  0x4008c6d9:0x3ffb1f70 in esp_system_abort at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/esp_system/esp_system.c:137
+  #2  0x40091ff9:0x3ffb1f90 in __assert_func at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/newlib/assert.c:85
+  #3  0x4010d153:0x3ffb20c0 in esp_littlefs_format at /Users/ficeto/Desktop/ESP32/ESP32S2/esp32-arduino-lib-builder/components/esp_littlefs/src/esp_littlefs.c:357 (discriminator 1)
+  #4  0x400df80a:0x3ffb20f0 in fs::LittleFSFS::format() at C:/Users/UriSh/.platformio/packages/framework-arduinoespressif32/libraries/LittleFS/src/LittleFS.cpp:117
+  #5  0x400d6f6d:0x3ffb2110 in setup() at src/main.cpp:773
+  #6  0x400e1f76:0x3ffb2290 in loopTask(void*) at C:/Users/UriSh/.platformio/packages/framework-arduinoespressif32/cores/esp32/main.cpp:42
+
+
+
+
+ELF file SHA256: 0d4d82f3f0bd8038
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13192
+load:0x40080400,len:3028
+entry 0x400805e4
+
+Starting ConfigOnSwitch using LittleFS on Espressif ESP32 Dev Module
+ESP_WiFiManager v1.12.1
+Forced Formatting.
+
+assert failed: esp_littlefs_format esp_littlefs.c:321 (partition_label)
+
+
+Backtrace: 0x400836e9:0x3ffb1f50 0x4008c6d9:0x3ffb1f70 0x40091ff9:0x3ffb1f90 0x4010d153:0x3ffb20c0 0x400df80a:0x3ffb20f0 0x400d6f6d:0x3ffb2110 0x400e1f76:0x3ffb2290
+
+  #0  0x400836e9:0x3ffb1f50 in panic_abort at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/esp_system/panic.c:408
+  #1  0x4008c6d9:0x3ffb1f70 in esp_system_abort at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/esp_system/esp_system.c:137
+  #2  0x40091ff9:0x3ffb1f90 in __assert_func at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/newlib/assert.c:85
+  #3  0x4010d153:0x3ffb20c0 in esp_littlefs_format at /Users/ficeto/Desktop/ESP32/ESP32S2/esp32-arduino-lib-builder/components/esp_littlefs/src/esp_littlefs.c:357 (discriminator 1)
+  #4  0x400df80a:0x3ffb20f0 in fs::LittleFSFS::format() at C:/Users/UriSh/.platformio/packages/framework-arduinoespressif32/libraries/LittleFS/src/LittleFS.cpp:117
+  #5  0x400d6f6d:0x3ffb2110 in setup() at src/main.cpp:773
+  #6  0x400e1f76:0x3ffb2290 in loopTask(void*) at C:/Users/UriSh/.platformio/packages/framework-arduinoespressif32/cores/esp32/main.cpp:42
+
+
+
+
+ELF file SHA256: 0d4d82f3f0bd8038
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13192
+load:0x40080400,len:3028
+entry 0x400805e4
+
+Starting ConfigOnSwitch using LittleFS on Espressif ESP32 Dev Module
+ESP_WiFiManager v1.12.1
+Forced Formatting.
+
+assert failed: esp_littlefs_format esp_littlefs.c:321 (partition_label)
+
+
+Backtrace: 0x400836e9:0x3ffb1f50 0x4008c6d9:0x3ffb1f70 0x40091ff9:0x3ffb1f90 0x4010d153:0x3ffb20c0 0x400df80a:0x3ffb20f0 0x400d6f6d:0x3ffb2110 0x400e1f76:0x3ffb2290
+
+  #0  0x400836e9:0x3ffb1f50 in panic_abort at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/esp_system/panic.c:408
+  #1  0x4008c6d9:0x3ffb1f70 in esp_system_abort at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/esp_system/esp_system.c:137
+  #2  0x40091ff9:0x3ffb1f90 in __assert_func at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/newlib/assert.c:85
+  #3  0x4010d153:0x3ffb20c0 in esp_littlefs_format at /Users/ficeto/Desktop/ESP32/ESP32S2/esp32-arduino-lib-builder/components/esp_littlefs/src/esp_littlefs.c:357 (discriminator 1)
+  #4  0x400df80a:0x3ffb20f0 in fs::LittleFSFS::format() at C:/Users/UriSh/.platformio/packages/framework-arduinoespressif32/libraries/LittleFS/src/LittleFS.cpp:117
+  #5  0x400d6f6d:0x3ffb2110 in setup() at src/main.cpp:773
+  #6  0x400e1f76:0x3ffb2290 in loopTask(void*) at C:/Users/UriSh/.platformio/packages/framework-arduinoespressif32/cores/esp32/main.cpp:42
+
+
+
+
+ELF file SHA256: 0d4d82f3f0bd8038
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13192
+load:0x40080400,len:3028
+entry 0x400805e4
+
+Starting ConfigOnSwitch using LittleFS on Espressif ESP32 Dev Module
+ESP_WiFiManager v1.12.1
+Forced Formatting.
+
+assert failed: esp_littlefs_format esp_littlefs.c:321 (partition_label)
+
+
+Backtrace: 0x400836e9:0x3ffb1f50 0x4008c6d9:0x3ffb1f70 0x40091ff9:0x3ffb1f90 0x4010d153:0x3ffb20c0 0x400df80a:0x3ffb20f0 0x400d6f6d:0x3ffb2110 0x400e1f76:0x3ffb2290
+
+  #0  0x400836e9:0x3ffb1f50 in panic_abort at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/esp_system/panic.c:408
+  #1  0x4008c6d9:0x3ffb1f70 in esp_system_abort at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/esp_system/esp_system.c:137
+  #2  0x40091ff9:0x3ffb1f90 in __assert_func at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/newlib/assert.c:85
+  #3  0x4010d153:0x3ffb20c0 in esp_littlefs_format at /Users/ficeto/Desktop/ESP32/ESP32S2/esp32-arduino-lib-builder/components/esp_littlefs/src/esp_littlefs.c:357 (discriminator 1)
+  #4  0x400df80a:0x3ffb20f0 in fs::LittleFSFS::format() at C:/Users/UriSh/.platformio/packages/framework-arduinoespressif32/libraries/LittleFS/src/LittleFS.cpp:117
+  #5  0x400d6f6d:0x3ffb2110 in setup() at src/main.cpp:773
+  #6  0x400e1f76:0x3ffb2290 in loopTask(void*) at C:/Users/UriSh/.platformio/packages/framework-arduinoespressif32/cores/esp32/main.cpp:42
+
+
+
+
+ELF file SHA256: 0d4d82f3f0bd8038
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13192
+load:0x40080400,len:3028
+entry 0x400805e4
+
+Starting ConfigOnSwitch using LittleFS on Espressif ESP32 Dev Module
+ESP_WiFiManager v1.12.1
+Forced Formatting.
+
+assert failed: esp_littlefs_format esp_littlefs.c:321 (partition_label)
+
+
+Backtrace: 0x400836e9:0x3ffb1f50 0x4008c6d9:0x3ffb1f70 0x40091ff9:0x3ffb1f90 0x4010d153:0x3ffb20c0 0x400df80a:0x3ffb20f0 0x400d6f6d:0x3ffb2110 0x400e1f76:0x3ffb2290
+
+  #0  0x400836e9:0x3ffb1f50 in panic_abort at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/esp_system/panic.c:408
+  #1  0x4008c6d9:0x3ffb1f70 in esp_system_abort at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/esp_system/esp_system.c:137
+  #2  0x40091ff9:0x3ffb1f90 in __assert_func at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/newlib/assert.c:85
+  #3  0x4010d153:0x3ffb20c0 in esp_littlefs_format at /Users/ficeto/Desktop/ESP32/ESP32S2/esp32-arduino-lib-builder/components/esp_littlefs/src/esp_littlefs.c:357 (discriminator 1)
+  #4  0x400df80a:0x3ffb20f0 in fs::LittleFSFS::format() at C:/Users/UriSh/.platformio/packages/framework-arduinoespressif32/libraries/LittleFS/src/LittleFS.cpp:117
+  #5  0x400d6f6d:0x3ffb2110 in setup() at src/main.cpp:773
+  #6  0x400e1f76:0x3ffb2290 in loopTask(void*) at C:/Users/UriSh/.platformio/packages/framework-arduinoespressif32/cores/esp32/main.cpp:42
+
+
+
+
+ELF file SHA256: 0d4d82f3f0bd8038
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13192
+load:0x40080400,len:3028
+entry 0x400805e4
+
+Starting ConfigOnSwitch using LittleFS on Espressif ESP32 Dev Module
+ESP_WiFiManager v1.12.1
+Forced Formatting.
+
+assert failed: esp_littlefs_format esp_littlefs.c:321 (partition_label)
+
+
+Backtrace: 0x400836e9:0x3ffb1f50 0x4008c6d9:0x3ffb1f70 0x40091ff9:0x3ffb1f90 0x4010d153:0x3ffb20c0 0x400df80a:0x3ffb20f0 0x400d6f6d:0x3ffb2110 0x400e1f76:0x3ffb2290
+
+  #0  0x400836e9:0x3ffb1f50 in panic_abort at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/esp_system/panic.c:408
+  #1  0x4008c6d9:0x3ffb1f70 in esp_system_abort at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/esp_system/esp_system.c:137
+  #2  0x40091ff9:0x3ffb1f90 in __assert_func at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/newlib/assert.c:85
+  #3  0x4010d153:0x3ffb20c0 in esp_littlefs_format at /Users/ficeto/Desktop/ESP32/ESP32S2/esp32-arduino-lib-builder/components/esp_littlefs/src/esp_littlefs.c:357 (discriminator 1)
+  #4  0x400df80a:0x3ffb20f0 in fs::LittleFSFS::format() at C:/Users/UriSh/.platformio/packages/framework-arduinoespressif32/libraries/LittleFS/src/LittleFS.cpp:117
+  #5  0x400d6f6d:0x3ffb2110 in setup() at src/main.cpp:773
+  #6  0x400e1f76:0x3ffb2290 in loopTask(void*) at C:/Users/UriSh/.platformio/packages/framework-arduinoespressif32/cores/esp32/main.cpp:42
+
+
+
+
+ELF file SHA256: 0d4d82f3f0bd8038
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13192
+load:0x40080400,len:3028
+entry 0x400805e4
+
+Starting ConfigOnSwitch using LittleFS on Espressif ESP32 Dev Module
+ESP_WiFiManager v1.12.1
+Forced Formatting.
+
+assert failed: esp_littlefs_format esp_littlefs.c:321 (partition_label)
+
+
+Backtrace: 0x400836e9:0x3ffb1f50 0x4008c6d9:0x3ffb1f70 0x40091ff9:0x3ffb1f90 0x4010d153:0x3ffb20c0 0x400df80a:0x3ffb20f0 0x400d6f6d:0x3ffb2110 0x400e1f76:0x3ffb2290
+
+  #0  0x400836e9:0x3ffb1f50 in panic_abort at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/esp_system/panic.c:408
+  #1  0x4008c6d9:0x3ffb1f70 in esp_system_abort at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/esp_system/esp_system.c:137
+  #2  0x40091ff9:0x3ffb1f90 in __assert_func at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/newlib/assert.c:85
+  #3  0x4010d153:0x3ffb20c0 in esp_littlefs_format at /Users/ficeto/Desktop/ESP32/ESP32S2/esp32-arduino-lib-builder/components/esp_littlefs/src/esp_littlefs.c:357 (discriminator 1)
+  #4  0x400df80a:0x3ffb20f0 in fs::LittleFSFS::format() at C:/Users/UriSh/.platformio/packages/framework-arduinoespressif32/libraries/LittleFS/src/LittleFS.cpp:117
+  #5  0x400d6f6d:0x3ffb2110 in setup() at src/main.cpp:773
+  #6  0x400e1f76:0x3ffb2290 in loopTask(void*) at C:/Users/UriSh/.platformio/packages/framework-arduinoespressif32/cores/esp32/main.cpp:42
+
+
+
+
+ELF file SHA256: 0d4d82f3f0bd8038
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13192
+load:0x40080400,len:3028
+entry 0x400805e4
+
+Starting ConfigOnSwitch using LittleFS on Espressif ESP32 Dev Module
+ESP_WiFiManager v1.12.1
+Forced Formatting.
+
+assert failed: esp_littlefs_format esp_littlefs.c:321 (partition_label)
+
+
+Backtrace: 0x400836e9:0x3ffb1f50 0x4008c6d9:0x3ffb1f70 0x40091ff9:0x3ffb1f90 0x4010d153:0x3ffb20c0 0x400df80a:0x3ffb20f0 0x400d6f6d:0x3ffb2110 0x400e1f76:0x3ffb2290
+
+  #0  0x400836e9:0x3ffb1f50 in panic_abort at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/esp_system/panic.c:408
+  #1  0x4008c6d9:0x3ffb1f70 in esp_system_abort at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/esp_system/esp_system.c:137
+  #2  0x40091ff9:0x3ffb1f90 in __assert_func at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/newlib/assert.c:85
+  #3  0x4010d153:0x3ffb20c0 in esp_littlefs_format at /Users/ficeto/Desktop/ESP32/ESP32S2/esp32-arduino-lib-builder/components/esp_littlefs/src/esp_littlefs.c:357 (discriminator 1)
+  #4  0x400df80a:0x3ffb20f0 in fs::LittleFSFS::format() at C:/Users/UriSh/.platformio/packages/framework-arduinoespressif32/libraries/LittleFS/src/LittleFS.cpp:117
+  #5  0x400d6f6d:0x3ffb2110 in setup() at src/main.cpp:773
+  #6  0x400e1f76:0x3ffb2290 in loopTask(void*) at C:/Users/UriSh/.platformio/packages/framework-arduinoespressif32/cores/esp32/main.cpp:42
+
+
+
+
+ELF file SHA256: 0d4d82f3f0bd8038
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13192
+load:0x40080400,len:3028
+entry 0x400805e4
+
+Starting ConfigOnSwitch using LittleFS on Espressif ESP32 Dev Module
+ESP_WiFiManager v1.12.1
+Forced Formatting.
+
+assert failed: esp_littlefs_format esp_littlefs.c:321 (partition_label)
+
+
+Backtrace: 0x400836e9:0x3ffb1f50 0x4008c6d9:0x3ffb1f70 0x40091ff9:0x3ffb1f90 0x4010d153:0x3ffb20c0 0x400df80a:0x3ffb20f0 0x400d6f6d:0x3ffb2110 0x400e1f76:0x3ffb2290
+
+  #0  0x400836e9:0x3ffb1f50 in panic_abort at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/esp_system/panic.c:408
+  #1  0x4008c6d9:0x3ffb1f70 in esp_system_abort at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/esp_system/esp_system.c:137
+  #2  0x40091ff9:0x3ffb1f90 in __assert_func at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/newlib/assert.c:85
+  #3  0x4010d153:0x3ffb20c0 in esp_littlefs_format at /Users/ficeto/Desktop/ESP32/ESP32S2/esp32-arduino-lib-builder/components/esp_littlefs/src/esp_littlefs.c:357 (discriminator 1)
+  #4  0x400df80a:0x3ffb20f0 in fs::LittleFSFS::format() at C:/Users/UriSh/.platformio/packages/framework-arduinoespressif32/libraries/LittleFS/src/LittleFS.cpp:117
+  #5  0x400d6f6d:0x3ffb2110 in setup() at src/main.cpp:773
+  #6  0x400e1f76:0x3ffb2290 in loopTask(void*) at C:/Users/UriSh/.platformio/packages/framework-arduinoespressif32/cores/esp32/main.cpp:42
+
+
+
+
+ELF file SHA256: 0d4d82f3f0bd8038
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13192
+load:0x40080400,len:3028
+entry 0x400805e4
+
+Starting ConfigOnSwitch using LittleFS on Espressif ESP32 Dev Module
+ESP_WiFiManager v1.12.1
+Forced Formatting.
+
+assert failed: esp_littlefs_format esp_littlefs.c:321 (partition_label)
+
+
+Backtrace: 0x400836e9:0x3ffb1f50 0x4008c6d9:0x3ffb1f70 0x40091ff9:0x3ffb1f90 0x4010d153:0x3ffb20c0 0x400df80a:0x3ffb20f0 0x400d6f6d:0x3ffb2110 0x400e1f76:0x3ffb2290
+
+  #0  0x400836e9:0x3ffb1f50 in panic_abort at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/esp_system/panic.c:408
+  #1  0x4008c6d9:0x3ffb1f70 in esp_system_abort at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/esp_system/esp_system.c:137
+  #2  0x40091ff9:0x3ffb1f90 in __assert_func at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/newlib/assert.c:85
+  #3  0x4010d153:0x3ffb20c0 in esp_littlefs_format at /Users/ficeto/Desktop/ESP32/ESP32S2/esp32-arduino-lib-builder/components/esp_littlefs/src/esp_littlefs.c:357 (discriminator 1)
+  #4  0x400df80a:0x3ffb20f0 in fs::LittleFSFS::format() at C:/Users/UriSh/.platformio/packages/framework-arduinoespressif32/libraries/LittleFS/src/LittleFS.cpp:117
+  #5  0x400d6f6d:0x3ffb2110 in setup() at src/main.cpp:773
+  #6  0x400e1f76:0x3ffb2290 in loopTask(void*) at C:/Users/UriSh/.platformio/packages/framework-arduinoespressif32/cores/esp32/main.cpp:42
+
+
+
+
+ELF file SHA256: 0d4d82f3f0bd8038
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13192
+load:0x40080400,len:3028
+entry 0x400805e4
+
+Starting ConfigOnSwitch using LittleFS on Espressif ESP32 Dev Module
+ESP_WiFiManager v1.12.1
+Forced Formatting.
+
+assert failed: esp_littlefs_format esp_littlefs.c:321 (partition_label)
+
+
+Backtrace: 0x400836e9:0x3ffb1f50 0x4008c6d9:0x3ffb1f70 0x40091ff9:0x3ffb1f90 0x4010d153:0x3ffb20c0 0x400df80a:0x3ffb20f0 0x400d6f6d:0x3ffb2110 0x400e1f76:0x3ffb2290
+
+  #0  0x400836e9:0x3ffb1f50 in panic_abort at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/esp_system/panic.c:408
+  #1  0x4008c6d9:0x3ffb1f70 in esp_system_abort at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/esp_system/esp_system.c:137
+  #2  0x40091ff9:0x3ffb1f90 in __assert_func at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/newlib/assert.c:85
+  #3  0x4010d153:0x3ffb20c0 in esp_littlefs_format at /Users/ficeto/Desktop/ESP32/ESP32S2/esp32-arduino-lib-builder/components/esp_littlefs/src/esp_littlefs.c:357 (discriminator 1)
+  #4  0x400df80a:0x3ffb20f0 in fs::LittleFSFS::format() at C:/Users/UriSh/.platformio/packages/framework-arduinoespressif32/libraries/LittleFS/src/LittleFS.cpp:117
+  #5  0x400d6f6d:0x3ffb2110 in setup() at src/main.cpp:773
+  #6  0x400e1f76:0x3ffb2290 in loopTask(void*) at C:/Users/UriSh/.platformio/packages/framework-arduinoespressif32/cores/esp32/main.cpp:42
+
+
+
+
+ELF file SHA256: 0d4d82f3f0bd8038
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13192
+load:0x40080400,len:3028
+entry 0x400805e4
+
+Starting ConfigOnSwitch using LittleFS on Espressif ESP32 Dev Module
+ESP_WiFiManager v1.12.1
+Forced Formatting.
+
+assert failed: esp_littlefs_format esp_littlefs.c:321 (partition_label)
+
+
+Backtrace: 0x400836e9:0x3ffb1f50 0x4008c6d9:0x3ffb1f70 0x40091ff9:0x3ffb1f90 0x4010d153:0x3ffb20c0 0x400df80a:0x3ffb20f0 0x400d6f6d:0x3ffb2110 0x400e1f76:0x3ffb2290
+
+  #0  0x400836e9:0x3ffb1f50 in panic_abort at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/esp_system/panic.c:408
+  #1  0x4008c6d9:0x3ffb1f70 in esp_system_abort at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/esp_system/esp_system.c:137
+  #2  0x40091ff9:0x3ffb1f90 in __assert_func at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/newlib/assert.c:85
+  #3  0x4010d153:0x3ffb20c0 in esp_littlefs_format at /Users/ficeto/Desktop/ESP32/ESP32S2/esp32-arduino-lib-builder/components/esp_littlefs/src/esp_littlefs.c:357 (discriminator 1)
+  #4  0x400df80a:0x3ffb20f0 in fs::LittleFSFS::format() at C:/Users/UriSh/.platformio/packages/framework-arduinoespressif32/libraries/LittleFS/src/LittleFS.cpp:117
+  #5  0x400d6f6d:0x3ffb2110 in setup() at src/main.cpp:773
+  #6  0x400e1f76:0x3ffb2290 in loopTask(void*) at C:/Users/UriSh/.platformio/packages/framework-arduinoespressif32/cores/esp32/main.cpp:42
+
+
+
+
+ELF file SHA256: 0d4d82f3f0bd8038
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13192
+load:0x40080400,len:3028
+entry 0x400805e4
+
+Starting ConfigOnSwitch using LittleFS on Espressif ESP32 Dev Module
+ESP_WiFiManager v1.12.1
+Forced Formatting.
+
+assert failed: esp_littlefs_format esp_littlefs.c:321 (partition_label)
+
+
+Backtrace: 0x400836e9:0x3ffb1f50 0x4008c6d9:0x3ffb1f70 0x40091ff9:0x3ffb1f90 0x4010d153:0x3ffb20c0 0x400df80a:0x3ffb20f0 0x400d6f6d:0x3ffb2110 0x400e1f76:0x3ffb2290
+
+  #0  0x400836e9:0x3ffb1f50 in panic_abort at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/esp_system/panic.c:408
+  #1  0x4008c6d9:0x3ffb1f70 in esp_system_abort at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/esp_system/esp_system.c:137
+  #2  0x40091ff9:0x3ffb1f90 in __assert_func at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/newlib/assert.c:85
+  #3  0x4010d153:0x3ffb20c0 in esp_littlefs_format at /Users/ficeto/Desktop/ESP32/ESP32S2/esp32-arduino-lib-builder/components/esp_littlefs/src/esp_littlefs.c:357 (discriminator 1)
+  #4  0x400df80a:0x3ffb20f0 in fs::LittleFSFS::format() at C:/Users/UriSh/.platformio/packages/framework-arduinoespressif32/libraries/LittleFS/src/LittleFS.cpp:117
+  #5  0x400d6f6d:0x3ffb2110 in setup() at src/main.cpp:773
+  #6  0x400e1f76:0x3ffb2290 in loopTask(void*) at C:/Users/UriSh/.platformio/packages/framework-arduinoespressif32/cores/esp32/main.cpp:42
+
+
+
+
+ELF file SHA256: 0d4d82f3f0bd8038
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13192
+load:0x40080400,len:3028
+entry 0x400805e4
+
+Starting ConfigOnSwitch using LittleFS on Espressif ESP32 Dev Module
+ESP_WiFiManager v1.12.1
+Forced Formatting.
+
+assert failed: esp_littlefs_format esp_littlefs.c:321 (partition_label)
+
+
+Backtrace: 0x400836e9:0x3ffb1f50 0x4008c6d9:0x3ffb1f70 0x40091ff9:0x3ffb1f90 0x4010d153:0x3ffb20c0 0x400df80a:0x3ffb20f0 0x400d6f6d:0x3ffb2110 0x400e1f76:0x3ffb2290
+
+  #0  0x400836e9:0x3ffb1f50 in panic_abort at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/esp_system/panic.c:408
+  #1  0x4008c6d9:0x3ffb1f70 in esp_system_abort at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/esp_system/esp_system.c:137
+  #2  0x40091ff9:0x3ffb1f90 in __assert_func at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/newlib/assert.c:85
+  #3  0x4010d153:0x3ffb20c0 in esp_littlefs_format at /Users/ficeto/Desktop/ESP32/ESP32S2/esp32-arduino-lib-builder/components/esp_littlefs/src/esp_littlefs.c:357 (discriminator 1)
+  #4  0x400df80a:0x3ffb20f0 in fs::LittleFSFS::format() at C:/Users/UriSh/.platformio/packages/framework-arduinoespressif32/libraries/LittleFS/src/LittleFS.cpp:117
+  #5  0x400d6f6d:0x3ffb2110 in setup() at src/main.cpp:773
+  #6  0x400e1f76:0x3ffb2290 in loopTask(void*) at C:/Users/UriSh/.platformio/packages/framework-arduinoespressif32/cores/esp32/main.cpp:42
+
+
+
+
+ELF file SHA256: 0d4d82f3f0bd8038
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13192
+load:0x40080400,len:3028
+entry 0x400805e4
+
+Starting ConfigOnSwitch using LittleFS on Espressif ESP32 Dev Module
+ESP_WiFiManager v1.12.1
+Forced Formatting.
+
+assert failed: esp_littlefs_format esp_littlefs.c:321 (partition_label)
+
+
+Backtrace: 0x400836e9:0x3ffb1f50 0x4008c6d9:0x3ffb1f70 0x40091ff9:0x3ffb1f90 0x4010d153:0x3ffb20c0 0x400df80a:0x3ffb20f0 0x400d6f6d:0x3ffb2110 0x400e1f76:0x3ffb2290
+
+  #0  0x400836e9:0x3ffb1f50 in panic_abort at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/esp_system/panic.c:408
+  #1  0x4008c6d9:0x3ffb1f70 in esp_system_abort at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/esp_system/esp_system.c:137
+  #2  0x40091ff9:0x3ffb1f90 in __assert_func at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/newlib/assert.c:85
+  #3  0x4010d153:0x3ffb20c0 in esp_littlefs_format at /Users/ficeto/Desktop/ESP32/ESP32S2/esp32-arduino-lib-builder/components/esp_littlefs/src/esp_littlefs.c:357 (discriminator 1)
+  #4  0x400df80a:0x3ffb20f0 in fs::LittleFSFS::format() at C:/Users/UriSh/.platformio/packages/framework-arduinoespressif32/libraries/LittleFS/src/LittleFS.cpp:117
+  #5  0x400d6f6d:0x3ffb2110 in setup() at src/main.cpp:773
+  #6  0x400e1f76:0x3ffb2290 in loopTask(void*) at C:/Users/UriSh/.platformio/packages/framework-arduinoespressif32/cores/esp32/main.cpp:42
+
+
+
+
+ELF file SHA256: 0d4d82f3f0bd8038
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13192
+load:0x40080400,len:3028
+entry 0x400805e4
+
+Starting ConfigOnSwitch using LittleFS on Espressif ESP32 Dev Module
+ESP_WiFiManager v1.12.1
+Forced Formatting.
+
+assert failed: esp_littlefs_format esp_littlefs.c:321 (partition_label)
+
+
+Backtrace: 0x400836e9:0x3ffb1f50 0x4008c6d9:0x3ffb1f70 0x40091ff9:0x3ffb1f90 0x4010d153:0x3ffb20c0 0x400df80a:0x3ffb20f0 0x400d6f6d:0x3ffb2110 0x400e1f76:0x3ffb2290
+
+  #0  0x400836e9:0x3ffb1f50 in panic_abort at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/esp_system/panic.c:408
+  #1  0x4008c6d9:0x3ffb1f70 in esp_system_abort at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/esp_system/esp_system.c:137
+  #2  0x40091ff9:0x3ffb1f90 in __assert_func at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/newlib/assert.c:85
+  #3  0x4010d153:0x3ffb20c0 in esp_littlefs_format at /Users/ficeto/Desktop/ESP32/ESP32S2/esp32-arduino-lib-builder/components/esp_littlefs/src/esp_littlefs.c:357 (discriminator 1)
+  #4  0x400df80a:0x3ffb20f0 in fs::LittleFSFS::format() at C:/Users/UriSh/.platformio/packages/framework-arduinoespressif32/libraries/LittleFS/src/LittleFS.cpp:117
+  #5  0x400d6f6d:0x3ffb2110 in setup() at src/main.cpp:773
+  #6  0x400e1f76:0x3ffb2290 in loopTask(void*) at C:/Users/UriSh/.platformio/packages/framework-arduinoespressif32/cores/esp32/main.cpp:42
+
+
+
+
+ELF file SHA256: 0d4d82f3f0bd8038
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13192
+load:0x40080400,len:3028
+entry 0x400805e4
+
+Starting ConfigOnSwitch using LittleFS on Espressif ESP32 Dev Module
+ESP_WiFiManager v1.12.1
+Forced Formatting.
+
+assert failed: esp_littlefs_format esp_littlefs.c:321 (partition_label)
+
+
+Backtrace: 0x400836e9:0x3ffb1f50 0x4008c6d9:0x3ffb1f70 0x40091ff9:0x3ffb1f90 0x4010d153:0x3ffb20c0 0x400df80a:0x3ffb20f0 0x400d6f6d:0x3ffb2110 0x400e1f76:0x3ffb2290
+
+  #0  0x400836e9:0x3ffb1f50 in panic_abort at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/esp_system/panic.c:408
+  #1  0x4008c6d9:0x3ffb1f70 in esp_system_abort at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/esp_system/esp_system.c:137
+  #2  0x40091ff9:0x3ffb1f90 in __assert_func at /Users/ficeto/Desktop/ESP32/ESP32S2/esp-idf-public/components/newlib/assert.c:85
+  #3  0x4010d153:0x3ffb20c0 in esp_littlefs_format at /Users/ficeto/Desktop/ESP32/ESP32S2/esp32-arduino-lib-builder/components/esp_littlefs/src/esp_littlefs.c:357 (discriminator 1)
+  #4  0x400df80a:0x3ffb20f0 in fs::LittleFSFS::format() at C:/Users/UriSh/.platformio/packages/framework-arduinoespressif32/libraries/LittleFS/src/LittleFS.cpp:117
+  #5  0x400d6f6d:0x3ffb2110 in setup() at src/main.cpp:773
+  #6  0x400e1f76:0x3ffb2290 in loopTask(void*) at C:/Users/UriSh/.platformio/packages/framework-arduinoespressif32/cores/esp32/main.cpp:42
+
+
+
+
+ELF file SHA256: 0d4d82f3f0bd8038
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13192
+load:0x40080400,len:3028
+entry 0x400805e4

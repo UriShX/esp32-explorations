@@ -1,0 +1,7 @@
+{
+    "type": "esp32_experiments",
+    "version": 1,
+    "host": "github.com/urishx/",
+    "port": 443,
+    "bin": "/firmware.bin"
+}
