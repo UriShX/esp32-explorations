@@ -1,4 +1,4 @@
-https://myserver/ota/lastBuild.bin
+https://github.com/UriShX/esp32-explorations/raw/main/release/fw_v2.bin
 2
 a2fbf5835de079474e820ceda2ca9986
-1.1
+2
