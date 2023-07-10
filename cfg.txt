@@ -1,4 +1,4 @@
-https://raw.githubusercontent.com/urishX/esp32-explorations/main/release/fw_v2.bin
-2
-de56fce6702d7a18eb2263ecd94e73e4
-2
+https://raw.githubusercontent.com/urishX/esp32-explorations/main/release/fw_v3.bin
+3
+e656464f0f4fe5e6823765020a570f56
+3
