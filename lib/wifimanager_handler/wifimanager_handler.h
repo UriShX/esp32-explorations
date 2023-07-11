@@ -3,17 +3,22 @@
 
 #include <Arduino.h>
 
-// Function Prototypes
-uint8_t connectMultiWiFi();
+class Wifimanager_wrapper
+{
+    private:
+        // Function Prototypes
+        uint8_t connectMultiWiFi();
+        void printLocalTime();
+        void heartBeatPrint();
+        void format_filesystem_handler();
+        void check_WiFi();
 
-// void printLocalTime();
-void heartBeatPrint();
-
-void check_status();
-
-void wifimanager_init_prints();
-void format_filesystem_handler();
-void wifimanager_config_and_initialize();
-void wifimanager_start_portal();
+    public:
+        Wifimanager_wrapper() {};
+        void check_status();
+        void wifimanager_init_prints();
+        void wifimanager_config_and_initialize();
+        void wifimanager_start_portal();
+};
 
 #endif

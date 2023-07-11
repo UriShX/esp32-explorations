@@ -29,9 +29,9 @@
 #include <pins_config.h>
 #include <ota_config.h>
 #include <wifimanager_handler.h>
-
-
 #include <EOTAUpdate.h>
+
+Wifimanager_wrapper wifiman;
 
 // EOTAUpdate updater(UPDATE_URL, VERSION_NUMBER);
 EOTAUpdate updater(UPDATE_URL, VERSION_NUMBER, UPDATE_INTERVAL);
@@ -51,9 +51,9 @@ void setup()
 
   delay(200);
 
-  wifimanager_init_prints();
+  wifiman.wifimanager_init_prints();
 
-  wifimanager_config_and_initialize();
+  wifiman.wifimanager_config_and_initialize();
 }
 
 void loop()
@@ -65,14 +65,15 @@ void loop()
     updater.CheckAndUpdate();
     update_checker_timer = millis();
   }
+
   // is configuration portal requested?
   if ((digitalRead(TRIGGER_PIN) == LOW) || (digitalRead(TRIGGER_PIN2) == LOW))
   {
     Serial.println(F("\nConfiguration portal requested."));
-    wifimanager_start_portal();
+    wifiman.wifimanager_start_portal();
   }
 
   // put your main code here, to run repeatedly
-  check_status();
+  wifiman.check_status();
 
 }

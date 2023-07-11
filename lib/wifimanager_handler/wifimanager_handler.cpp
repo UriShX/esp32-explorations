@@ -233,7 +233,7 @@ String password;
 String Router_SSID;
 String Router_Pass;
 
-uint8_t connectMultiWiFi()
+uint8_t Wifimanager_wrapper::connectMultiWiFi()
 {
 #if ESP32
   // For ESP32, this better be 0 to shorten the connect time.
@@ -323,7 +323,7 @@ uint8_t connectMultiWiFi()
 }
 
 #if USE_ESP_WIFIMANAGER_NTP
-void printLocalTime()
+void Wifimanager_wrapper::printLocalTime()
 {
 #if ESP8266
   static time_t now;
@@ -351,7 +351,7 @@ void printLocalTime()
 }
 #endif
 
-void heartBeatPrint()
+void Wifimanager_wrapper::heartBeatPrint()
 {
 #if USE_ESP_WIFIMANAGER_NTP
   printLocalTime();
@@ -444,7 +444,7 @@ void configWiFi(WiFi_STA_IPConfig in_WM_STA_IPconfig)
 
 
 
-void check_WiFi()
+void Wifimanager_wrapper::check_WiFi()
 {
   if ( (WiFi.status() != WL_CONNECTED) )
   {
@@ -453,7 +453,7 @@ void check_WiFi()
   }
 }  
 
-void check_status()
+void Wifimanager_wrapper::check_status()
 {
   static ulong checkstatus_timeout  = 0;
   static ulong checkwifi_timeout    = 0;
@@ -569,14 +569,14 @@ void saveConfigData()
   }
 }
 
-void wifimanager_init_prints()
+void Wifimanager_wrapper::wifimanager_init_prints()
 { 
   Serial.print(F("\nStarting ConfigOnSwitch using ")); Serial.print(FS_Name);
   Serial.print(F(" on ")); Serial.println(ARDUINO_BOARD);
   Serial.println(ESP_WIFIMANAGER_VERSION);
 }
 
-void format_filesystem_handler()
+void Wifimanager_wrapper::format_filesystem_handler()
 {
   
   if (FORMAT_FILESYSTEM)
@@ -617,7 +617,7 @@ void format_filesystem_handler()
   }
 }
 
-void wifimanager_config_and_initialize()
+void Wifimanager_wrapper::wifimanager_config_and_initialize()
 {
   
 #if defined(ESP_WIFIMANAGER_VERSION_MIN)
@@ -861,7 +861,7 @@ void wifimanager_config_and_initialize()
     Serial.println(ESP_wifiManager.getStatus(WiFi.status()));
 }
 
-void wifimanager_start_portal()
+void Wifimanager_wrapper::wifimanager_start_portal()
 {
   digitalWrite(PIN_LED, LED_ON); // turn the LED on by making the voltage LOW to tell us we are in configuration mode.
 
