@@ -25,6 +25,7 @@
    the WiFi network credentials will be sent from the browser over an encrypted connection and
    can not be read by observers.
  *****************************************************************************************************************************/
+#include <ota_config.h>
 
 #if !( defined(ESP8266) || defined(ESP32) )
   #error This code is intended to run only on the ESP8266 and ESP32 boards ! Please check your Tools->Board setting.
@@ -105,13 +106,6 @@
     #define FS_Name       "FFat"
   #endif
   //////
-  #include <esp32fota.h>
-
-  // esp32fota esp32fota("<Type of Firme for this device>", <this version>, <validate signature>);
-  esp32FOTA _esp32FOTA("esp32-fota-http", 1, false);
-
-  const char* manifest_url = "http://server/fota/fota.json";
-
   
   #define LED_BUILTIN       26
   #define LED_ON            HIGH
@@ -755,6 +749,13 @@ void saveConfigData()
   }
 }
 
+#include <EOTAUpdate.h>
+
+// EOTAUpdate updater(UPDATE_URL, VERSION_NUMBER);
+EOTAUpdate updater(UPDATE_URL, VERSION_NUMBER, UPDATE_INTERVAL);
+
+uint32_t update_checker_timer = millis();
+
 void setup()
 {
   // put your setup code here, to run once:
@@ -767,9 +768,7 @@ void setup()
   while (!Serial);
 
   delay(200);
-  
-  _esp32FOTA.setManifestURL( manifest_url );
-  _esp32FOTA.printConfig();
+
 
   Serial.print(F("\nStarting ConfigOnSwitch using ")); Serial.print(FS_Name);
   Serial.print(F(" on ")); Serial.println(ARDUINO_BOARD);
@@ -1053,6 +1052,13 @@ void setup()
 
 void loop()
 {
+  if (millis() - update_checker_timer > 500)
+  {
+    Serial.printf("Checking for updates. URL: %s\r\n", UPDATE_URL);
+    Serial.printf("Current version: %u\r\n", VERSION_NUMBER);
+    updater.CheckAndUpdate();
+    update_checker_timer = millis();
+  }
   // is configuration portal requested?
   if ((digitalRead(TRIGGER_PIN) == LOW) || (digitalRead(TRIGGER_PIN2) == LOW))
   {
