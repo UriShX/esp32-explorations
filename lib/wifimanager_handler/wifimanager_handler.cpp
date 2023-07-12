@@ -1,6 +1,6 @@
 #include "wifimanager_handler.h"
 #include <pins_config.h>
-
+#include <wifi_config.h>
 
 #if !( defined(ESP8266) || defined(ESP32) )
   #error This code is intended to run only on the ESP8266 and ESP32 boards ! Please check your Tools->Board setting.
@@ -89,26 +89,6 @@
 // #define FORMAT_FILESYSTEM       true
 #define FORMAT_FILESYSTEM         false
 
-#define MIN_AP_PASSWORD_SIZE    8
-
-#define SSID_MAX_LEN            32
-//From v1.0.10, WPA2 passwords can be up to 63 characters long.
-#define PASS_MAX_LEN            64
-
-typedef struct
-{
-  char wifi_ssid[SSID_MAX_LEN];
-  char wifi_pw  [PASS_MAX_LEN];
-}  WiFi_Credentials;
-
-typedef struct
-{
-  String wifi_ssid;
-  String wifi_pw;
-}  WiFi_Credentials_String;
-
-#define NUM_WIFI_CREDENTIALS      2
-
 // Assuming max 491 chars
 #define TZNAME_MAX_LEN            50
 #define TIMEZONE_MAX_LEN          50
@@ -123,7 +103,6 @@ typedef struct
 
 WM_Config         WM_config;
 
-#define  CONFIG_FILENAME              F("/wifi_cred.dat")
 //////
 
 // Indicates whether ESP has WiFi credentials saved from previous session

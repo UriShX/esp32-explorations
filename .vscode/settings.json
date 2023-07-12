@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "esp_ota_ops.h": "c",
+        "esp_app_format.h": "c"
+    }
+}
