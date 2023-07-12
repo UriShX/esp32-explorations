@@ -6,7 +6,7 @@
 const char * const   VERSION_STRING = "1";
 const unsigned short VERSION_NUMBER = 1;
 const char * const   UPDATE_URL     = "https://raw.githubusercontent.com/urishX/esp32-explorations/main/cfg.txt";
-const unsigned long  UPDATE_INTERVAL= 60000; // ms
+const unsigned long  UPDATE_INTERVAL= 1000; // ms
 
 
 #endif

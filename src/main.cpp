@@ -60,9 +60,14 @@ void loop()
 {
   if (millis() - update_checker_timer > 500)
   {
+    _eota_reponses_t response;
+    response = updater.Check();
     Serial.printf("Checking for updates. URL: %s\r\n", UPDATE_URL);
     Serial.printf("Current version: %u\r\n", VERSION_NUMBER);
-    updater.CheckAndUpdate();
+    if (response == eota_ok)
+    {
+      updater.CheckAndUpdate(true);
+    }
     update_checker_timer = millis();
   }
 
