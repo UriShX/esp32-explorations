@@ -81,6 +81,15 @@ from typing import BinaryIO, Iterator, Tuple
 import progname
 
 
+#: The custom-option that when defined, modifies the program-version.
+OTA_CDN_URL = "custom_cdn_url"
+#: The custom-option that when defined, modifies the program-version.
+RELEASE_FOLDER = "custom_release_folder"
+#: The custom-option that when defined, modifies the program-version.
+OTA_CONFIGURATION_FILE = "custom_ota_config"
+#: The custom-option that when defined, modifies the program-version.
+PROG_VERSION_OPTION = "custom_prog_version"
+
 #: Git command to show relative-dir of the current project, to use as project-name.
 GIT_RELATIVE_DIR_CMD = "git rev-parse --show-prefix".split()
 #: values for config-options translated case-insensitively as `False`.
@@ -368,13 +377,14 @@ def patch_bytestring_with_infos(
         if app_infos.date or app_infos.time:
             patch_bytestring(fd, "build_time", 0x70, 14, app_infos.time, sources.time)
             patch_bytestring(fd, "build_date", 0x80, 14, app_infos.date, sources.date)
+        
 
         return True
     else:
         print("  +--no image-infos enabled to patch!")
 
 
-def patch_app_infos(img_fpath, app_infos: AppInfos, sources: AppInfos):
+def patch_app_infos(img_fpath, app_infos: AppInfos, sources: AppInfos, env):
     print(f"Patching app-infos --> {img_fpath}:")
     with io.open(img_fpath, "r+b") as fd:
         img = load_and_verify_image(fd)
@@ -383,6 +393,22 @@ def patch_app_infos(img_fpath, app_infos: AppInfos, sources: AppInfos):
             checksum_image(fd, img.nsegments, patch=True)
             if img.is_hashed:
                 hash_image(fd, patch=True)
+    
+    filename = Path(img_fpath).name
+    root_path = Dir('#').abspath
+    cdn_url = env.GetProjectOption(OTA_CDN_URL, None)
+    version = env.GetProjectOption(PROG_VERSION_OPTION, None)
+    release_folder = env.GetProjectOption(RELEASE_FOLDER, None)
+    ota_config_filename = env.GetProjectOption(OTA_CONFIGURATION_FILE, None)
+    target = str(Path(Path(root_path),Path(release_folder, filename)))
+    shutil.copy(img_fpath, target)
+    
+    with open(f"{root_path}/{ota_config_filename}", 'w') as f:
+        img_md5 = hashlib.md5(open(img_fpath, 'rb').read()).hexdigest()
+        f.write(f'{cdn_url}{release_folder}/{filename}\n')
+        f.write(f'{version}\n')
+        f.write(f'{img_md5}\n')
+        
 
 
 def PatchAppInfos(source, target, env):
@@ -390,7 +416,7 @@ def PatchAppInfos(source, target, env):
     ## DEBUG: keep a copy of unpatched image.
     # shutil.copy(img_fpath, img_fpath + ".OK")
     app_infos, sources = _collect_app_infos(env)
-    patch_app_infos(img_fpath, app_infos, sources)
+    patch_app_infos(img_fpath, app_infos, sources, env)
 
 
 def install_patch_app_infos(env):
@@ -411,7 +437,7 @@ def install_patch_app_infos(env):
             img = load_and_verify_image(fd)
 
         print(img.infos._asdict())
-
+        
     env.Default(patch_action)
 
     ## TODO: make DumpAppInfos a new CLI

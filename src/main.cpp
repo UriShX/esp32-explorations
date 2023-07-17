@@ -30,13 +30,18 @@
 #include <ota_config.h>
 #include <wifimanager_handler.h>
 #include <EOTAUpdate.h>
+#include <esp_ver.h>
 
 Wifimanager_wrapper wifiman;
 
 // EOTAUpdate updater(UPDATE_URL, VERSION_NUMBER);
-EOTAUpdate updater(UPDATE_URL, VERSION_NUMBER, UPDATE_INTERVAL);
+// EOTAUpdate updater(UPDATE_URL, VERSION_NUMBER, UPDATE_INTERVAL);
+EOTAUpdate updater(UPDATE_URL, _esp_return_current_fw_version(), UPDATE_INTERVAL);
 
 uint32_t update_checker_timer = millis();
+
+uint8_t hash[32] = {0};
+String fw_ver;
 
 void setup()
 {
@@ -48,6 +53,14 @@ void setup()
 
   Serial.begin(115200);
   while (!Serial);
+  
+  // Serial.println(MYSTRING);
+  Serial.println(CDN_URL);
+
+  fw_ver = _esp_return_current_fw_version();
+  Serial.printf("flashed FW version: %s\r\n", fw_ver);
+
+  updater.print_versions();
 
   delay(200);
 
@@ -60,10 +73,11 @@ void loop()
 {
   if (millis() - update_checker_timer > 500)
   {
-    _eota_reponses_t response;
+    eota_reponses_t response;
     response = updater.Check();
     Serial.printf("Checking for updates. URL: %s\r\n", UPDATE_URL);
-    Serial.printf("Current version: %u\r\n", VERSION_NUMBER);
+    Serial.printf("Current version: %s\r\n", fw_ver);
+    Serial.printf("recieved response from library: %s (%u)\r\n", eota_responses_strings[response], response);
     if (response == eota_ok)
     {
       updater.CheckAndUpdate(true);
