@@ -3,6 +3,13 @@
 
 #include <Arduino.h>
 
+typedef enum {
+    wifimanager_wrapper_OK = 0,
+    wifimanager_wrapper_DISCONNECTED,
+    wifimanager_wrapper_MISSING,
+    wifimanager_wrapper_CONNECTED = -1
+} wifimanager_wrapper_t;
+
 class Wifimanager_wrapper
 {
     private:
@@ -19,6 +26,9 @@ class Wifimanager_wrapper
         void wifimanager_init_prints();
         void wifimanager_config_and_initialize();
         void wifimanager_start_portal();
+
+    private:
+        String _hostname;
 };
 
 #endif

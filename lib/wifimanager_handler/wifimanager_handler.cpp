@@ -607,6 +607,7 @@ void Wifimanager_wrapper::wifimanager_config_and_initialize()
   }
 #endif
 
+  // TODO: switch back when done
   Serial.setDebugOutput(false);
 
   format_filesystem_handler();
