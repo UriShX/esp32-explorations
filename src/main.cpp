@@ -32,6 +32,43 @@
 #include <EOTAUpdate.h>
 #include <esp_ver.h>
 
+#if defined(CONFIG_IDF_TARGET_ESP32)
+;;
+#elif defined(CONFIG_IDF_TARGET_ESP32S3)
+#include <FastLED.h>
+// #include "esp32_digital_led_lib.h"
+// #include "esp32_digital_led_funcs.h"
+#endif
+
+#ifdef __INC_FASTSPI_LED2_H
+#define NUM_LEDS 1
+
+// #define DATA_PIN 10 // GPIO38
+#define DATA_PIN GPIO_NUM_48
+
+typedef enum {
+  RED = 0,
+  GREEN = 1,
+  BLUE = 2,
+  NO_LED = -1
+} led_colors_t;
+
+CRGB leds[NUM_LEDS];
+
+led_colors_t led_counter = RED;
+#elif defined(ESP32_DIGITAL_LED_LIB_H)
+#define COUNT_OF(x) ((sizeof(x)/sizeof(0[x])) / ((size_t)(!(sizeof(x) % sizeof(0[x])))))
+
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wmissing-field-initializers"  // It's noisy here with `-Wall`
+
+//strand_t strand = {.rmtChannel = 0, .gpioNum = 26, .ledType = LED_WS2812B_V3, .brightLimit = 32, .numPixels = 64};
+strand_t strand = {.rmtChannel = 0, .gpioNum = 27, .ledType = LED_SK6812W_V1, .brightLimit = 64, .numPixels = 144};
+strand_t * STRANDS [] = { &strand };
+int STRANDCNT = COUNT_OF(STRANDS); 
+#pragma GCC diagnostic pop
+#endif
+
 Wifimanager_wrapper wifiman;
 
 // EOTAUpdate updater(UPDATE_URL, VERSION_NUMBER);
@@ -51,9 +88,34 @@ void setup()
   pinMode(TRIGGER_PIN, INPUT_PULLUP);
   pinMode(TRIGGER_PIN2, INPUT_PULLUP);
 
+  pinMode(GPIO_NUM_4, INPUT);
+  analogReadResolution(10);
+  analogSetAttenuation(ADC_11db);
+  adcAttachPin(GPIO_NUM_4);
+
   Serial.begin(115200);
   while (!Serial);
   
+#ifdef __INC_FASTSPI_LED2_H
+  FastLED.addLeds<SK6812, DATA_PIN, GRB>(leds, NUM_LEDS);  // GRB ordering is typical
+  // FastLED.addLeds<SK6822, DATA_PIN, RGB>(leds, NUM_LEDS);
+#elif defined(ESP32_DIGITAL_LED_LIB_H)
+  digitalLeds_initDriver();
+
+  gpioSetup(strand.gpioNum, OUTPUT, LOW);
+  int rc = digitalLeds_addStrands(STRANDS, STRANDCNT);
+  if (rc) {
+    Serial.print("Init rc = ");
+    Serial.println(rc);
+  }
+
+  if (digitalLeds_initDriver()) {
+    Serial.println("Init FAILURE: halting");
+    while (true) {};
+  }
+  digitalLeds_resetPixels(STRANDS, STRANDCNT);
+#endif
+
   // Serial.println(MYSTRING);
   Serial.println(CDN_URL);
 
@@ -64,9 +126,9 @@ void setup()
 
   delay(200);
 
-  wifiman.wifimanager_init_prints();
+  // wifiman.wifimanager_init_prints();
 
-  wifiman.wifimanager_config_and_initialize();
+  // wifiman.wifimanager_config_and_initialize();
 }
 
 void loop()
@@ -83,16 +145,51 @@ void loop()
       updater.CheckAndUpdate(true);
     }
     update_checker_timer = millis();
+
+#ifdef __INC_FASTSPI_LED2_H
+    switch (led_counter)
+    {
+    case RED:
+      leds[0] = CRGB::Red;
+      led_counter = GREEN;
+      break;
+    case GREEN:
+      leds[0] = CRGB::Green;
+      led_counter = BLUE;
+      break;
+    case BLUE:
+      leds[0] = CRGB::Blue;
+      led_counter = NO_LED;
+      break;
+    case NO_LED:
+      leds[0] = CRGB::Black;
+      led_counter = RED;
+      break;
+    
+    default:
+      leds[0] = CRGB::Black;
+      break;
+    }
+    FastLED.show();
+#elif defined(ESP32_DIGITAL_LED_LIB_H)
+  //  randomStrands(STRANDS, STRANDCNT, 200, 10000);
+  rainbows(STRANDS, STRANDCNT, 1, 0);
+  //simpleStepper(STRANDS, STRANDCNT, 0, 0);
+#endif
+
+  Serial.printf("Analog Voltage on GPIO_4 is: %u mA\n", analogReadMilliVolts(GPIO_NUM_4));
+  Serial.printf("Which translates to a 10 bit reading of: %u\n", analogRead(GPIO_NUM_4));
+
   }
 
-  // is configuration portal requested?
-  if ((digitalRead(TRIGGER_PIN) == LOW) || (digitalRead(TRIGGER_PIN2) == LOW))
-  {
-    Serial.println(F("\nConfiguration portal requested."));
-    wifiman.wifimanager_start_portal();
-  }
+  // // is configuration portal requested?
+  // if ((digitalRead(TRIGGER_PIN) == LOW) || (digitalRead(TRIGGER_PIN2) == LOW))
+  // {
+  //   Serial.println(F("\nConfiguration portal requested."));
+  //   wifiman.wifimanager_start_portal();
+  // }
 
-  // put your main code here, to run repeatedly
-  wifiman.check_status();
+  // // put your main code here, to run repeatedly
+  // wifiman.check_status();
 
 }

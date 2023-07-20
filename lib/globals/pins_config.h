@@ -59,8 +59,12 @@
 #define PIN_SDA           21        // Pin SDA mapped to pin GPIO21/SDA of ESP32   
 
 
-
+#if defined(CONFIG_IDF_TARGET_ESP32)
 #define LED_BUILTIN       26
+#elif defined(CONFIG_IDF_TARGET_ESP32S3)
+;;
+#endif
+
 #define PIN_LED           LED_BUILTIN
 #define LED_ON            HIGH
 #define LED_OFF           LOW
