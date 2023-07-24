@@ -32,6 +32,8 @@
 #include <EOTAUpdate.h>
 #include <esp_ver.h>
 
+#include <esp_adc_cal.h>
+
 #if defined(CONFIG_IDF_TARGET_ESP32)
 ;;
 #elif defined(CONFIG_IDF_TARGET_ESP32S3)
@@ -76,6 +78,28 @@ Wifimanager_wrapper wifiman;
 EOTAUpdate updater(UPDATE_URL, _esp_return_current_fw_version(), UPDATE_INTERVAL);
 
 uint32_t update_checker_timer = millis();
+uint32_t ADC_test_timer = millis();
+
+uint16_t adc_val = 0;
+uint16_t adc_mV = 0;
+
+uint16_t adc_val_old = 0;
+uint16_t adc_mV_old = 0;
+
+const uint32_t DUTY_CYCLE_MAX = 16383; // 2^14-1
+uint32_t duty_cycle = 0;
+
+// use first channel of 16 channels (started from zero)
+#define LEDC_CHANNEL_0     0
+
+// use 14 bit precission for LEDC timer
+#define LEDC_TIMER_14_BIT  14
+
+// use 5000 Hz as a LEDC base frequency
+#define LEDC_BASE_FREQ     1000
+
+// fade LED PIN (replace with LED_BUILTIN constant for built-in LED)
+#define LED_PIN            GPIO_NUM_7
 
 uint8_t hash[32] = {0};
 String fw_ver;
@@ -85,17 +109,35 @@ void setup()
   // put your setup code here, to run once:
   // initialize the LED digital pin as an output.
   pinMode(PIN_LED, OUTPUT);
-  pinMode(TRIGGER_PIN, INPUT_PULLUP);
-  pinMode(TRIGGER_PIN2, INPUT_PULLUP);
+  // pinMode(TRIGGER_PIN, INPUT_PULLUP);
+  // pinMode(TRIGGER_PIN2, INPUT_PULLUP);
 
   pinMode(GPIO_NUM_4, INPUT);
-  analogReadResolution(10);
+  // analogReadResolution(10);
   analogSetAttenuation(ADC_11db);
   adcAttachPin(GPIO_NUM_4);
 
   Serial.begin(115200);
   while (!Serial);
+
+
+  Serial.printf("\nesp_adc_cal_check_efuse(): %u\r\n", esp_adc_cal_check_efuse(ESP_ADC_CAL_VAL_EFUSE_TP_FIT));
   
+  esp_adc_cal_characteristics_t chars;
+  Serial.printf("\nesp_adc_cal_characterize(): %u\r\n", esp_adc_cal_characterize(ADC_UNIT_1, ADC_ATTEN_11db, ADC_WIDTH_BIT_12, ESP_ADC_CAL_VAL_EFUSE_TP_FIT, &chars));
+
+  Serial.println(chars.vref);
+  // // Setup timer and attach timer to a led pin
+  // uint32_t led_success = ledcSetup(LEDC_CHANNEL_0, LEDC_BASE_FREQ, LEDC_TIMER_14_BIT);
+  
+  // if (led_success != LEDC_BASE_FREQ)
+  // {
+  //   Serial.printf("ledc returned %u instead of %u\n", led_success, LEDC_BASE_FREQ);
+  //   while (1);
+  // }
+
+  // ledcAttachPin(LED_PIN, LEDC_CHANNEL_0);
+
 #ifdef __INC_FASTSPI_LED2_H
   FastLED.addLeds<SK6812, DATA_PIN, GRB>(leds, NUM_LEDS);  // GRB ordering is typical
   // FastLED.addLeds<SK6822, DATA_PIN, RGB>(leds, NUM_LEDS);
@@ -135,15 +177,16 @@ void loop()
 {
   if (millis() - update_checker_timer > 500)
   {
-    eota_reponses_t response;
-    response = updater.Check();
-    Serial.printf("Checking for updates. URL: %s\r\n", UPDATE_URL);
-    Serial.printf("Current version: %s\r\n", fw_ver);
-    Serial.printf("recieved response from library: %s (%u)\r\n", eota_responses_strings[response], response);
-    if (response == eota_ok)
-    {
-      updater.CheckAndUpdate(true);
-    }
+    // eota_reponses_t response;
+    // response = updater.Check();
+    // // Serial.printf("Checking for updates. URL: %s\r\n", UPDATE_URL);
+    // // Serial.printf("Current version: %s\r\n", fw_ver);
+    // // Serial.printf("recieved response from library: %s (%u)\r\n", eota_responses_strings[response], response);
+    // if (response == eota_ok)
+    // {
+    //   Serial.printf("Found update, trying to perform OTA\n");
+    //   updater.CheckAndUpdate(true);
+    // }
     update_checker_timer = millis();
 
 #ifdef __INC_FASTSPI_LED2_H
@@ -176,10 +219,32 @@ void loop()
   rainbows(STRANDS, STRANDCNT, 1, 0);
   //simpleStepper(STRANDS, STRANDCNT, 0, 0);
 #endif
+  }
 
-  Serial.printf("Analog Voltage on GPIO_4 is: %u mA\n", analogReadMilliVolts(GPIO_NUM_4));
-  Serial.printf("Which translates to a 10 bit reading of: %u\n", analogRead(GPIO_NUM_4));
+  adc_mV = analogReadMilliVolts(GPIO_NUM_4);
+  // adc_val = analogRead(GPIO_NUM_4);
 
+  if (millis() - ADC_test_timer > 500 && (adc_mV != adc_mV_old || adc_val != adc_val_old))
+  {
+    adc_mV_old = adc_mV;
+    // adc_val_old = adc_val;
+    uint32_t voltage = map(adc_val, 0, 3095, 0, 3100);
+    // Serial.printf("Analog Voltage on GPIO_4 is: %u mA\n", adc_mV);
+    Serial.printf("%u mV\r\n", adc_mV);
+  }
+
+
+  if (millis() - ADC_test_timer > 500)
+  {
+  //   if (duty_cycle < DUTY_CYCLE_MAX)
+  //     duty_cycle += 100;
+  //   else
+  //     duty_cycle = 0;
+    
+  //   // write duty to LEDC
+  //   ledcWrite(LEDC_CHANNEL_0, duty_cycle);
+
+    ADC_test_timer = millis();
   }
 
   // // is configuration portal requested?
