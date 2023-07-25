@@ -80,11 +80,21 @@ EOTAUpdate updater(UPDATE_URL, _esp_return_current_fw_version(), UPDATE_INTERVAL
 uint32_t update_checker_timer = millis();
 uint32_t ADC_test_timer = millis();
 
-uint16_t adc_val = 0;
-uint16_t adc_mV = 0;
+uint16_t adc_test_mV = 0;
+uint16_t adc_test_mV_old = 0;
+uint16_t adc_Beed_IR_mV = 0;
+uint16_t adc_Beed_IR_mV_old = 0;
+uint16_t adc_SHARP_IR_mV = 0;
+uint16_t adc_SHARP_IR_mV_old = 0;
 
-uint16_t adc_val_old = 0;
-uint16_t adc_mV_old = 0;
+#define slow_filter_k 8 // 561 samples
+#define fast_filter_k 4 // 34 samples
+
+uint32_t filter_reg = 0;
+uint16_t filter_out = 0;
+
+uint32_t current_filter_reg = 0;
+uint16_t current_filter_out = 0;
 
 const uint32_t DUTY_CYCLE_MAX = 16383; // 2^14-1
 uint32_t duty_cycle = 0;
@@ -113,9 +123,14 @@ void setup()
   // pinMode(TRIGGER_PIN2, INPUT_PULLUP);
 
   pinMode(GPIO_NUM_4, INPUT);
-  // analogReadResolution(10);
   analogSetAttenuation(ADC_11db);
   adcAttachPin(GPIO_NUM_4);
+  pinMode(GPIO_NUM_5, INPUT);
+  analogSetAttenuation(ADC_11db);
+  adcAttachPin(GPIO_NUM_5);
+  pinMode(GPIO_NUM_6, INPUT);
+  analogSetAttenuation(ADC_11db);
+  adcAttachPin(GPIO_NUM_6);
 
   Serial.begin(115200);
   while (!Serial);
@@ -126,7 +141,8 @@ void setup()
   esp_adc_cal_characteristics_t chars;
   Serial.printf("\nesp_adc_cal_characterize(): %u\r\n", esp_adc_cal_characterize(ADC_UNIT_1, ADC_ATTEN_11db, ADC_WIDTH_BIT_12, ESP_ADC_CAL_VAL_EFUSE_TP_FIT, &chars));
 
-  Serial.println(chars.vref);
+  Serial.println(chars.coeff_a);
+  Serial.println(chars.coeff_b);
   // // Setup timer and attach timer to a led pin
   // uint32_t led_success = ledcSetup(LEDC_CHANNEL_0, LEDC_BASE_FREQ, LEDC_TIMER_14_BIT);
   
@@ -221,16 +237,30 @@ void loop()
 #endif
   }
 
-  adc_mV = analogReadMilliVolts(GPIO_NUM_4);
-  // adc_val = analogRead(GPIO_NUM_4);
+  adc_test_mV = analogReadMilliVolts(GPIO_NUM_4);
+  adc_SHARP_IR_mV = analogReadMilliVolts(GPIO_NUM_5);
+  adc_Beed_IR_mV = analogReadMilliVolts(GPIO_NUM_6);
 
-  if (millis() - ADC_test_timer > 500 && (adc_mV != adc_mV_old || adc_val != adc_val_old))
+  filter_reg = filter_reg - (filter_reg >> slow_filter_k) + adc_Beed_IR_mV;
+	filter_out = filter_reg >> slow_filter_k;
+
+  if (millis() - ADC_test_timer > 500)
   {
-    adc_mV_old = adc_mV;
-    // adc_val_old = adc_val;
-    uint32_t voltage = map(adc_val, 0, 3095, 0, 3100);
-    // Serial.printf("Analog Voltage on GPIO_4 is: %u mA\n", adc_mV);
-    Serial.printf("%u mV\r\n", adc_mV);
+    // if (adc_test_mV != adc_test_mV_old)
+    // {
+    //   adc_test_mV_old = adc_test_mV;
+    //   Serial.printf("pot: %u mV\r\n", adc_test_mV);
+    // }
+    if (adc_SHARP_IR_mV != adc_SHARP_IR_mV_old)
+    {
+      adc_SHARP_IR_mV_old = adc_SHARP_IR_mV;
+      Serial.printf("SHARP IR: %u mV\r\n", adc_SHARP_IR_mV);
+    }
+    if (filter_out != adc_Beed_IR_mV_old)
+    {
+      adc_Beed_IR_mV_old = filter_out;
+      Serial.printf("Beed IR: %u mV\r\n", filter_out);
+    }
   }
 
 
